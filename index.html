@@ -1,0 +1,487 @@
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamadou Chérif Diallo | Architecte de Solutions Numériques</title>
+    <!-- Importation de la police d'écriture moderne (Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --light-gray: #f9f9f9;
+            --dark-gray: #333333;
+            --accent: #000000;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= NAVIGATION ================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: gray;
+        }
+
+        /* ================= SECTIONS GLOBALES ================= */
+        section {
+            padding: 100px 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* ================= HERO SECTION ================= */
+        #hero {
+            align-items: center;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            filter: grayscale(100%); 
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        #hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            transition: var(--transition);
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* ================= EXPERIENCES & COMPETENCES ================= */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card h4 {
+            color: gray;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .card ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+        }
+
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-tag {
+            background-color: var(--light-gray);
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* ================= PROJETS ================= */
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Permet à l'image de remplir l'espace sans se déformer */
+            display: block;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* ================= CONTACT ================= */
+        .contact-info {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        .contact-info strong {
+            font-weight: 800;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } 
+            .logo { margin: 0 auto; }
+            section { padding: 80px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRE DE NAVIGATION -->
+    <header>
+        <div class="logo">M. Chérif Diallo</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTION HERO (ACCUEIL) -->
+    <section id="hero">
+        <!-- Ta vraie photo de profil -->
+        <img src="186363.jpg" alt="Mamadou Chérif Diallo" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'">
+        
+        <h1>Mamadou Chérif Diallo</h1>
+        <h2>Architecte de Solutions Numériques | Développeur IA-Assisté</h2>
+        
+        <p class="hero-text">
+            Architecte et développeur spécialisé dans les systèmes assistés par IA. Expert en optimisation de workflows, je conçois des solutions numériques performantes, intégrant une dimension multimédia et publicitaire de haute qualité.
+        </p>
+
+        <div>
+            <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+            <!-- Lien mis à jour avec le nom exact de ton fichier PDF -->
+            <a href="White Black Elegant Modern Corporate CV Resume.pdf" target="_blank" download class="btn btn-secondary">Télécharger mon CV</a>
+        </div>
+    </section>
+
+    <!-- SECTION EXPERIENCES -->
+    <section id="experience">
+        <h2 class="section-title">Expérience Professionnelle</h2>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h3>Développeur IA-Assisté</h3>
+                <h4>Conception & Architecture</h4>
+                <ul>
+                    <li>Conception d'architectures logicielles complexes.</li>
+                    <li>Développement Full-Stack de solutions scalables.</li>
+                    <li>Optimisation via intégration d'outils d'assistance IA.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Consultant Multimédia</h3>
+                <h4>Production Visuelle</h4>
+                <ul>
+                    <li>Direction artistique et montage vidéo publicitaire.</li>
+                    <li>Stratégie visuelle et engagement client.</li>
+                    <li>Production de contenus numériques à fort impact.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Architecte Systèmes</h3>
+                <h4>Déploiement & Cloud</h4>
+                <ul>
+                    <li>Maîtrise transversale (C, C++, Python, JS).</li>
+                    <li>Déploiement et gestion d'infrastructures Cloud.</li>
+                    <li>Veille technologique et automatisation.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION COMPETENCES -->
+    <section id="skills">
+        <h2 class="section-title">Compétences Techniques</h2>
+        
+        <div class="skills-wrapper">
+            <div class="skill-tag">Développement IA-Assisté</div>
+            <div class="skill-tag">Architecture Backend & Frontend</div>
+            <div class="skill-tag">Langages (C, C++, Python, JS)</div>
+            <div class="skill-tag">Gestion Cloud & DevOps</div>
+            <div class="skill-tag">Montage Vidéo Publicitaire</div>
+            <div class="skill-tag">Optimisation de Workflows</div>
+            <div class="skill-tag">Supabase & Bases de données</div>
+            <div class="skill-tag">Bilinguisme (Français/Pulaar)</div>
+        </div>
+    </section>
+
+    <!-- SECTION PROJETS -->
+    <section id="projects">
+        <h2 class="section-title">Mes Projets Récents</h2>
+        
+        <div class="grid-container">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Projet Web" class="project-img">
+                <div class="project-content">
+                    <h3>Architecture Web IA</h3>
+                    <p>Développement d'une plateforme web robuste. Architecture backend performante et intégration de workflows assistés par IA.</p>
+                    <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">Voir le projet</a>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Tableau de bord" class="project-img">
+                <div class="project-content">
+                    <h3>Solutions E-Commerce</h3>
+                    <p>Déploiement complet de systèmes de paiement et gestion de bases de données relationnelles pour des marketplaces.</p>
+                    <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">Voir le projet</a>
+                </div>
+            </div>
+            
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?auto=format&fit=crop&w=400&q=80" alt="Multimédia" class="project-img">
+                <div class="project-content">
+                    <h3>Création Multimédia</h3>
+                    <p>Montage vidéo publicitaire et direction artistique pour augmenter l'engagement client et optimiser le marketing visuel.</p>
+                    <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">Voir le projet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">Contactez-moi</h2>
+        <div class="hero-text text-center">
+            Vous avez un projet en tête ou vous recherchez un architecte de solutions numériques ? Discutons de la manière dont nous pouvons collaborer.
+        </div>
+        
+        <div class="contact-info">
+            <p><strong>Téléphone :</strong> +221 70 549 13 30</p>
+            <p><strong>Email :</strong> <a href="mailto:macherif9876@gmail.com">macherif9876@gmail.com</a></p>
+            <p><strong>Localisation :</strong> Dakar, Sénégal</p>
+            <br>
+            <a href="mailto:macherif9876@gmail.com" class="btn btn-primary">M'envoyer un email</a>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>&copy; 2026 Mamadou Chérif Diallo. Tous droits réservés.</p>
+    </footer>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            
+            const revealSection = () => {
+                const windowHeight = window.innerHeight;
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if(sectionTop < windowHeight - 100) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'all 0.8s ease-out';
+            });
+
+            window.addEventListener('scroll', revealSection);
+            revealSection(); 
+        });
+    </script>
+</body>
+</html>
+
+
+
